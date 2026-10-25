@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Catatan Bu Diana – Blog Guru Kelas VI</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,500&family=Nunito+Sans:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#faf6fb;--surface:#fff;--ink:#2b2340;--muted:#6a6180;--acc:#6d4fc0;--line:#e6dcef;--c1:#f6d5de;--c2:#d4ebdd;--c3:#ddd5f2;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a1630;--surface:#252040;--ink:#efeaf8;--muted:#b3a9cc;--acc:#b9a4f2;--line:#3a3358;--c1:#4a2f45;--c2:#27443a;--c3:#38306a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1a1630;--surface:#252040;--ink:#efeaf8;--muted:#b3a9cc;--acc:#b9a4f2;--line:#3a3358;--c1:#4a2f45;--c2:#27443a;--c3:#38306a;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.06rem/1.75 "Nunito Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.15;margin:0}
+a{color:var(--acc)}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.wrap{max-width:860px;margin:0 auto;padding:0 22px}
+header{position:relative;padding:64px 0 36px;overflow:hidden}
+.blob{position:absolute;border-radius:50%;z-index:0}
+.b1{width:260px;height:260px;background:var(--c1);top:-80px;right:-60px}
+.b2{width:170px;height:170px;background:var(--c2);top:70px;right:130px;opacity:.9}
+.b3{width:120px;height:120px;background:var(--c3);top:-20px;right:200px}
+header .wrap{position:relative;z-index:1}
+.kicker{margin:0 0 10px;color:var(--muted);font-weight:600}
+h1{font-size:clamp(2.4rem,7vw,4.2rem);font-style:italic;font-weight:500;max-width:9em}
+.sub{max-width:30em;color:var(--muted);margin:16px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:30px 0 8px}
+.chip{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 16px;border-radius:99px;font:600 .95rem "Nunito Sans",sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin:22px 0 60px}
+.card{display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--ink);padding:24px;border-radius:24px;min-height:210px}
+.card:nth-child(3n+1){background:var(--c1)}.card:nth-child(3n+2){background:var(--c2)}.card:nth-child(3n){background:var(--c3)}
+.card:hover{transform:translateY(-3px)}
+.card{transition:transform .2s}
+.card small{font-weight:700}
+.card h2{font-size:1.45rem}
+.card p{margin:0;font-size:.97rem;opacity:.85}
+.card .more{margin-top:auto;font-weight:700}
+article{padding:20px 0 70px}
+article .meta{color:var(--muted);font-weight:600}
+article h1{font-size:clamp(2rem,6vw,3.2rem);max-width:none;margin:10px 0 24px}
+article p{max-width:36em;font-size:1.1rem}
+.back{display:inline-block;margin-bottom:16px;font-weight:700;text-decoration:none}
+.tag{display:inline-block;background:var(--c3);color:var(--ink);padding:2px 12px;border-radius:99px;font-weight:700;font-size:.9rem}
+.note{max-width:36em;margin-top:34px;padding:20px 22px;border-radius:20px;background:var(--surface);border:1px solid var(--line)}
+.note b{font-family:Fraunces,serif;font-size:1.15rem}
+footer{border-top:1px solid var(--line);padding:30px 0 40px;text-align:center;color:var(--muted)}
+[hidden]{display:none!important}
+@media (max-width:640px){.b1{width:180px;height:180px}.b2{right:60px}.b3{right:110px}}
+@media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="home">
+<header><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+<div class="wrap">
+<p class="kicker">Blog Bu Diana, guru kelas VI SDN Warukkalong 1</p>
+<h1>Catatan dari kelas enam</h1>
+<p class="sub">Cerita, refleksi, dan praktik baik dari ruang kelas kecil di Kwadungan, Ngawi. Tempat saya mencatat apa yang berhasil, apa yang belum, dan apa yang saya pelajari dari murid.</p>
+<div class="chips" id="chips" role="group" aria-label="Saring tulisan menurut label"></div>
+</div></header>
+<main class="wrap"><div class="cards" id="cards"></div></main>
+</div>
+
+<div id="read" hidden><div class="wrap">
+<header style="padding:40px 0 0"><span class="blob b1" style="opacity:.6"></span></header>
+<article id="art"></article>
+</div></div>
+
+<footer><div class="wrap">
+<p>Diana Hepi, S.Pd. · SDN Warukkalong 1, Kwadungan, Ngawi</p>
+<p><a href="https://dianahepi94-commits.github.io/Portofolio-guru-dh/">Portofolio saya</a> · <a href="https://dianahepi94-commits.github.io/Petanas-Petuaalangan-sistem-pernafasan/" target="_blank" rel="noopener">Coba PETANAS</a></p>
+</div></footer>
+
+<script>
+var POSTS=[
+{id:'perkenalan',label:'Perkenalan',date:'Oktober 2026',read:'1 menit',title:'Halo, saya Bu Diana',
+ sum:'Siapa saya, bagaimana saya mengajar, dan kenapa blog ini ada.',
+ body:['Saya Diana Hepi, guru kelas VI di SDN Warukkalong 1, Kecamatan Kwadungan, Kabupaten Ngawi. Saya lulusan S1 Pendidikan Guru Sekolah Dasar Universitas PGRI Madiun.','Bagi saya, menjadi guru bukan sekadar menjalankan tugas. Ini panggilan untuk ikut membentuk anak-anak yang berpengetahuan, berkarakter, dan mandiri. Saya berusaha mengajar dengan cara yang kreatif, menyenangkan, dan berpusat pada murid.','Blog ini tempat saya mencatat. Isinya refleksi mengajar, media yang saya buat, dan hal-hal kecil dari kelas yang ingin saya bagikan kepada rekan guru.']},
+{id:'dari-ceramah-ke-petualangan',label:'Refleksi',date:'Oktober 2026',read:'2 menit',title:'Dari ceramah ke petualangan: kenapa saya membuat PETANAS',
+ sum:'Materi pernapasan itu tak terlihat. Bagaimana membuat anak-anak mau menjelajahinya?',
+ body:['Sistem pernapasan sulit diajarkan karena organnya ada di dalam tubuh dan prosesnya tidak terlihat. Selama ini saya menjelaskan lewat ceramah dan gambar buku. Hasilnya, hanya beberapa siswa yang aktif. Sisanya menunggu dan mudah kehilangan fokus. Empat dari dua belas siswa belum tuntas.','Saya sadar anak-anak akrab dengan dunia digital dan suka bermain. Jadi saya bertanya: bagaimana kalau latihan soal terasa seperti petualangan?','Dari pertanyaan itu lahir PETANAS (Petualangan Sistem Pernapasan), media belajar dengan video, anatomi, dan dua permainan. Setelah dipakai di kelas, ketuntasan naik dari 66,7% menjadi 91,7%, dan siswa yang biasanya pendiam mulai berani menjawab.']},
+{id:'media-interaktif-dengan-ai',label:'Praktik baik',date:'Oktober 2026',read:'2 menit',title:'Membuat media interaktif dengan bantuan AI, gratis',
+ sum:'Satu file HTML, GitHub Pages, dan prompt yang jelas.',
+ body:['Banyak guru mengira membuat media interaktif itu rumit. Padahal PETANAS hanya satu file HTML yang saya unggah ke GitHub Pages, sehingga bisa dibuka siswa lewat satu tautan, tanpa instal aplikasi dan tanpa biaya.','AI membantu saya menyusun bank soal, kode permainan, dan memperbaiki kesalahan. Kuncinya ada di prompt yang jelas: sebutkan peran, kelas, materi, jumlah pemain, dan aturan permainan.','Setelah itu, uji berulang di HP. Saya menemukan jawaban yang bisa ditekan dua kali dan tampilan yang terpotong di layar kecil. Hal seperti ini baru ketahuan kalau dicoba sendiri.']},
+{id:'papan-pernapasan',label:'Kegiatan siswa',date:'Oktober 2026',read:'2 menit',title:'Papan pernapasan dari balon, sedotan, dan karton',
+ sum:'Setelah bermain, murid membuat karya dengan tangan mereka sendiri.',
+ body:['Belajar lewat layar saja tidak cukup. Setelah menonton video dan bermain Zombie Battle, murid dibagi menjadi empat kelompok dan menerima lembar kerja.','Tiap kelompok merakit alat peraga papan pernapasan dari balon, sedotan, dan karton. Saya berkeliling, memantau keaktifan, dan membantu kelompok yang tersendat.','Di akhir, tiap kelompok mempresentasikan karyanya dan kelompok lain menanggapi. Saat murid menjelaskan sendiri bagaimana udara masuk dan keluar, saya tahu mereka benar-benar paham.']},
+{id:'satu-hp-berdua',label:'Kendala dan solusi',date:'Oktober 2026',read:'1 menit',title:'Satu HP berdua: mengatasi keterbatasan perangkat',
+ sum:'Tidak semua murid punya gawai. Ini cara kami menyiasatinya.',
+ body:['Tidak semua siswa punya perangkat sendiri, dan jaringan kadang lemah. Solusinya sederhana: siswa bekerja berkelompok dan memakai satu perangkat bersama. Materi juga saya buka lebih dulu sebelum pelajaran dimulai.','Kendala lain, siswa terlalu fokus pada permainan. Saya menegaskan aturan di awal dan menutup pelajaran dengan refleksi, supaya kesenangan bermain berubah menjadi pemahaman.']}
+];
+var cur='Semua',home=document.getElementById('home'),read=document.getElementById('read');
+var labels=['Semua'].concat(POSTS.map(function(p){return p.label}).filter(function(v,i,a){return a.indexOf(v)===i}));
+function chips(){var c=document.getElementById('chips');c.innerHTML='';labels.forEach(function(l){var b=document.createElement('button');b.className='chip';b.type='button';b.textContent=l;b.setAttribute('aria-pressed',l===cur);b.onclick=function(){cur=l;chips();cards()};c.appendChild(b)})}
+function cards(){var w=document.getElementById('cards');w.innerHTML='';POSTS.filter(function(p){return cur==='Semua'||p.label===cur}).forEach(function(p){var a=document.createElement('a');a.className='card';a.href='#'+p.id;a.innerHTML='<small>'+p.label+' · '+p.read+'</small><h2>'+p.title+'</h2><p>'+p.sum+'</p><span class="more">Baca tulisan</span>';w.appendChild(a)})}
+function route(){var id=location.hash.slice(1),p=POSTS.filter(function(x){return x.id===id})[0];
+ if(!p){home.hidden=false;read.hidden=true;document.title='Catatan Bu Diana – Blog Guru Kelas VI';return}
+ home.hidden=true;read.hidden=false;document.title=p.title+' – Catatan Bu Diana';
+ document.getElementById('art').innerHTML='<a class="back" href="#">Kembali ke semua tulisan</a><div class="meta"><span class="tag">'+p.label+'</span> '+p.date+' · '+p.read+' baca</div><h1>'+p.title+'</h1>'+p.body.map(function(t){return '<p>'+t+'</p>'}).join('')+'<div class="note"><b>Mau mencoba PETANAS?</b><br>Gratis dan bisa dibuka lewat HP. <a href="https://dianahepi94-commits.github.io/Petanas-Petuaalangan-sistem-pernafasan/" target="_blank" rel="noopener">Buka PETANAS</a></div>';
+ window.scrollTo(0,0)}
+window.addEventListener('hashchange',route);chips();cards();route();
+</script>
+</body>
+</html>
